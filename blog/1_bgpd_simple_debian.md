@@ -1,4 +1,4 @@
-#simple bgp session with debian 10
+# simple bgp session with debian 10
 
 install quagga
 
