@@ -1,0 +1,39 @@
+<!DOCTYPE html> <html lang="en"> <head>
+  <meta charset="utf-8">
+  <title>blame it on the network</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/fonts/Raleway.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <script src="/js/showdown.min.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function(){
+  const httpclient = new XMLHttpRequest();
+  const url='https://blameitonthe.network/blog/2_unbound_debian.md';
+  httpclient.open("GET", url);
+  httpclient.send();
+
+  httpclient.onreadystatechange = (e) => {
+    var text =   httpclient.responseText,
+      target = document.getElementById('targetDiv'),
+      converter = new showdown.Converter(),
+      html = converter.makeHtml(text);
+
+    target.innerHTML = html;
+  }
+  });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id="targetDiv" class="column" style="margin-top: 10%">
+      </div>
+      <a href="https://blameitonthe.network/blog/2_unbound_debian.md">download the markdown source of this document</a>
+    </div>
+  </div>
+</body>
+</html>
